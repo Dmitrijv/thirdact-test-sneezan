@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const OuterWrapper = styled.div`
-display: flex; 
-align-items: center;
-justify-content: center;
-margin-top: 10%;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+`;

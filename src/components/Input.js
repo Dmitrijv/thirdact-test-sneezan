@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import uniqid from 'uniqid'
-import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
-import person from 'reducers/slice'
-import { OuterWrapper } from './GlobalStyles'
+import React, { useState, useEffect } from "react";
+import uniqid from "uniqid";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import person from "reducers/person";
+import { OuterWrapper } from "./GlobalStyles";
 
 export const InputFields = () => {
-  const dispatch = useDispatch()
-  const [newName, setNewName] = useState('')
-  const [newSurname, setNewSurname] = useState('')
+  const dispatch = useDispatch();
+  const [newName, setNewName] = useState("");
+  const [newSurname, setNewSurname] = useState("");
   const [editable, setEditable] = useState(false);
   // const [editedPerson, setEditedPerson] = useState('')
   const selected = useSelector((store) => store.person.selectedPerson);
@@ -19,17 +19,17 @@ export const InputFields = () => {
       id: uniqid(),
       fullname: [newSurname, newName],
       name: [newName],
-      surname: [newSurname]
+      surname: [newSurname],
     };
-    dispatch(person.actions.addItem(postUser))
-    setNewName('');
-    setNewSurname('');
+    dispatch(person.actions.addItem(postUser));
+    setNewName("");
+    setNewSurname("");
   };
 
   useEffect(() => {
     setNewName(selected[1]);
     setNewSurname(selected[0]);
-  }, [selected])
+  }, [selected]);
 
   const handleChange = (event) => {
     setEditable(event.target.value);
@@ -44,7 +44,7 @@ export const InputFields = () => {
   };
 
   // feel that input is being edited, when update is pressed, merge/splice editen into list?
-  // if clicked handle array of user, splice with pre-existing? 
+  // if clicked handle array of user, splice with pre-existing?
 
   return (
     <Wrapper>
@@ -59,7 +59,8 @@ export const InputFields = () => {
                 value={newName}
                 onInput={handleChange}
                 onChange={(e) => setNewName(e.target.value)}
-                placeholder="name" />
+                placeholder="name"
+              />
             </Label>
             <Label htmlFor="surname">
               <input
@@ -69,18 +70,16 @@ export const InputFields = () => {
                 value={newSurname}
                 onInput={handleChange}
                 onChange={(e) => setNewSurname(e.target.value)}
-                placeholder="surname" />
+                placeholder="surname"
+              />
             </Label>
           </div>
         </Form>
       </InnerWrapper>
       <ButtonWrap>
         {!editable && (
-          <button
-            type="button"
-            onClick={editItem}
-            onKeyDown={(e) => e.key === 'Enter' && editItem()}>
-                  Edit
+          <button type="button" onClick={editItem} onKeyDown={(e) => e.key === "Enter" && editItem()}>
+            Edit
           </button>
         )}
         {editable && (
@@ -88,42 +87,46 @@ export const InputFields = () => {
             type="submit"
             onClick={savingText}
             onSubmit={() => dispatch(person.actions.addItem())}
-            onKeyDown={(e) => e.key === 'Enter' && savingText()}>
-                  Update
+            onKeyDown={(e) => e.key === "Enter" && savingText()}
+          >
+            Update
           </button>
         )}
-        <button type="submit" onClick={handleSubmit}> Create </button>
+        <button type="submit" onClick={handleSubmit}>
+          {" "}
+          Create{" "}
+        </button>
         {/* <button type="submit"> Update </button> */}
       </ButtonWrap>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled(OuterWrapper)`
-display: flex;
-position: relative;
-`
+  display: flex;
+  position: relative;
+`;
 
 const InnerWrapper = styled.div`
-display: flex;
-position: absolute;
-left: 200px;
-top: 110px;
-`
+  display: flex;
+  position: absolute;
+  left: 200px;
+  top: 110px;
+`;
 const ButtonWrap = styled(OuterWrapper)`
-display: flex;
-position: absolute;
-top: 240px;
-left: 250px;
-`
+  display: flex;
+  position: absolute;
+  top: 240px;
+  left: 250px;
+`;
 
 const Form = styled.form`
-display: grid;
-`
+  display: grid;
+`;
 const Label = styled.label`
-display: flex;
-padding: 10px;
-`
+  display: flex;
+  padding: 10px;
+`;
 // const Name = styled.p`
 // padding: 0px;
 // `
