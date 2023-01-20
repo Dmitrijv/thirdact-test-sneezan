@@ -22,6 +22,7 @@
   },
   "plugins": ["react-hooks"],
   "rules": {
+    "quotes": [2, "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
     "react/function-component-definition": [
       2,
       {
