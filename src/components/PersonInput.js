@@ -66,6 +66,7 @@ export const PersonInput = () => {
         <input
           type="text"
           name="firstName"
+          autoComplete="off"
           placeholder="First name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -77,6 +78,7 @@ export const PersonInput = () => {
         <input
           type="text"
           name="lastName"
+          autoComplete="off"
           placeholder="Last name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
