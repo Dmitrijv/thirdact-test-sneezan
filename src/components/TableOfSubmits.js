@@ -38,7 +38,9 @@ export const TableOfSubmits = () => {
 
 const PersonTable = styled.table`
   width: 100%;
+  height: min-content;
   border-collapse: collapse;
+  border: 1px solid lightgray;
 
   tr,td {
     display: flex;
