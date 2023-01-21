@@ -127,7 +127,7 @@ const PersonForm = styled.form`
     transition: box-shadow 0.1s ease-in-out;
 
     &:focus {
-      outline: 1px solid #ecf1e6;
+      outline: 1px solid #bbc3b1;
       outline-offset: 1px;
     }
   }
