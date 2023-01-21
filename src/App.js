@@ -1,12 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { Provider } from "react-redux";
+import { Filter } from "components/Filter";
+import { TableOfSubmits } from "components/TableOfSubmits";
+import { PersonInput } from "components/PersonInput";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import person from "reducers/person.js";
-import { Card } from "components/Card";
-import { OuterWrapper } from "components/GlobalStyles";
+import { personSlice } from "./reducers/personSlice";
 
 const reducer = combineReducers({
-  person: person.reducer,
+  personSlice: personSlice.reducer,
 });
 
 const store = configureStore({ reducer });
@@ -14,9 +16,30 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <OuterWrapper>
-        <Card />
-      </OuterWrapper>
+      <Frame>
+        <Filter />
+        <PersonWrap>
+          <TableOfSubmits />
+          <PersonInput />
+        </PersonWrap>
+      </Frame>
     </Provider>
   );
 };
+
+const Frame = styled.div`
+  width: 100%;
+  max-width: 650px;
+  min-height: 600px;
+  box-shadow: rgb(149 157 165 / 15%) 0px 3px 6px 0px;
+  background-color: white;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 6px;
+`;
+
+const PersonWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
