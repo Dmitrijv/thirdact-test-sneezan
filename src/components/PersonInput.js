@@ -143,6 +143,8 @@ const ButtonWrap = styled.div`
   button {
     width: 100%;
     padding: 4px;
+    cursor: pointer;
+    pointer-events: all;
   }
 
   button + button {
