@@ -42,7 +42,8 @@ const PersonTable = styled.table`
   border-collapse: collapse;
   border: 1px solid lightgray;
 
-  tr,td {
+  tr,
+  td {
     display: flex;
     align-items: center;
     width: 100%;
@@ -53,13 +54,13 @@ const PersonTable = styled.table`
   }
 
   td[role="gridcell"] {
-    padding 8px;
+    padding: 8px;
     cursor: pointer;
 
     &:hover {
       background-color: whitesmoke;
     }
-    
+
     &.selected-cell {
       background-color: lightblue;
     }
