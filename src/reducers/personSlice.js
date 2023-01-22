@@ -40,7 +40,6 @@ export const personSlice = createSlice({
   },
 });
 
-export const { getPerson, addPerson, editPerson, deletePerson, setSelectedPersonId, setNameFilter } =
-  personSlice.actions;
+export const { addPerson, editPerson, deletePerson, setSelectedPersonId, setNameFilter } = personSlice.actions;
 
 export default personSlice.reducer;
