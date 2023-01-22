@@ -28,14 +28,13 @@ export const App = () => {
 };
 
 const Frame = styled.div`
-  width: 100%;
   max-width: 650px;
   min-height: 600px;
-  box-shadow: rgb(149 157 165 / 15%) 0px 3px 6px 0px;
-  background-color: white;
   margin: 10px auto;
   padding: 10px;
   border-radius: 6px;
+  box-shadow: rgb(149 157 165 / 15%) 0px 3px 6px 0px;
+  background-color: white;
 `;
 
 const PersonWrap = styled.div`
